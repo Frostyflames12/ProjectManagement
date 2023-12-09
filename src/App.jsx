@@ -1,8 +1,8 @@
 import { useState } from "react";
-import NewProject from "./components/NewProject";
-import NoProjectSelected from "./components/NoProjectSelected";
-import Sidebar from "./components/Sidebar";
-import SelectedProject from "./components/SelectedProject";
+import NewProject from "./components/projects/NewProject";
+import NoProjectSelected from "./components/projects/NoProjectSelected";
+import Sidebar from "./components/layout/Sidebar";
+import SelectedProject from "./components/projects/SelectedProject";
 
 function App() {
   const [projectsState, setProjectsSTate] = useState({
@@ -106,9 +106,9 @@ function App() {
     />
   );
   if (projectsState.selectedProjectId === null) {
-    content = (
+    content = 
       <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject} />
-    );
+    
   } else if (projectsState.selectedProjectId === undefined) {
     content = <NoProjectSelected onStartAddProject={handleStartAddProject} />;
   }
